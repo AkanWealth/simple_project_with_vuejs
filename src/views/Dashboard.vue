@@ -1,14 +1,18 @@
 <template>
-  <h3>Hello</h3>
+  <v-container>
+    <h3 v-if="user">
+      Hi, {{ user.data.first_name }} {{ user.data.last_name }}
+    </h3>
+    <h3 v-if="!user">You are not logged in</h3>
+  </v-container>
 </template>
 
 <script>
-import axios from "axios";
+import { mapGetters } from "vuex";
 export default {
   name: "Dashboard",
-  async created() {
-    const response = await axios.get("dashboard");
-    console.log(response);
+  computed: {
+    ...mapGetters(["user"]),
   },
 };
 </script>

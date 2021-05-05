@@ -49,7 +49,7 @@
               :disabled="!valid"
               color="success"
               class="mr-4"
-              @click="login"
+              @click.prevent="login"
             >
               Login
             </v-btn>
@@ -88,14 +88,16 @@ export default {
 
   methods: {
     async login() {
-      this.$refs.form.validate();
       const response = await axios.post("login", {
         email: this.email,
         password: this.password,
       });
 
-      localStorage.setItem("token", response.data.token);
+      let token = response.data.token;
+      localStorage.setItem("token", token);
+      this.$store.dispatch("user", response.data.user);
       this.$router.push("/dashboard");
+      this.$refs.form.validate();
     },
     cancel() {
       this.$refs.form.reset();
