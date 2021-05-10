@@ -32,22 +32,22 @@ export default {
       {
         name: "About",
         link: "#",
-        icon: "mdi-about",
+        icon: "mdi-book",
+      },
+      {
+        name: "Login",
+        link: "#",
+        icon: "mdi-account-circle",
+      },
+      {
+        name: "Sign Up",
+        link: "#",
+        icon: "mdi-account-plus",
       },
       {
         name: "Contact",
         link: "#",
         icon: "mdi-email",
-      },
-      {
-        name: "Login",
-        link: "#",
-        icon: "mdi-user",
-      },
-      {
-        name: "SignUp",
-        link: "#",
-        icon: "mdi-user",
       },
     ],
   }),

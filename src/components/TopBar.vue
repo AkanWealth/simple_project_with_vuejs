@@ -19,7 +19,12 @@
       <router-link to="/signup" class="toolbar-item">Sign Up</router-link>
     </v-toolbar-items>
     <v-toolbar-items class="shrink mt-1 hidden-sm-and-down" v-if="user">
-      <a href="javascript:void(0)" @click="logout">Logout</a>
+      <router-link to="/" class="toolbar-item">Home</router-link>
+      <router-link to="/about" class="toolbar-item">About</router-link>
+      <router-link to="/contact" class="toolbar-item">Contact</router-link>
+      <a href="javascript:void(0)" class="toolbar-item" @click="logout"
+        >Logout</a
+      >
     </v-toolbar-items>
   </v-app-bar>
 </template>
@@ -30,6 +35,7 @@ export default {
   methods: {
     logout() {
       localStorage.removeItem("token");
+      this.$store.dispatch("user", null);
       this.$router.push("/");
     },
   },

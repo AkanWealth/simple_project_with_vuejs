@@ -5,6 +5,7 @@ import Contact from "../views/Contact";
 import Login from "../views/Login";
 import Register from "../views/Register";
 import Dashboard from "../views/Dashboard";
+import NotFound from "../views/Errors/NotFound.vue";
 
 Vue.use(VueRouter);
 
@@ -41,6 +42,11 @@ const routes = [{
         // which is lazy-loaded when the route is visited.
         component: () =>
             import ( /* webpackChunkName: "about" */ "../views/About.vue"),
+    },
+    {
+        path: "*",
+        name: "NotFound",
+        component: NotFound,
     },
 ];
 
