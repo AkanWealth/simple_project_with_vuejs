@@ -6,6 +6,7 @@ import Login from "../views/Login";
 import Register from "../views/Register";
 import Dashboard from "../views/Dashboard";
 import NotFound from "../views/Errors/NotFound.vue";
+import AuthenticationMiddleware from "./middleware/authentication";
 
 Vue.use(VueRouter);
 
@@ -13,6 +14,9 @@ const routes = [{
         path: "/",
         name: "Home",
         component: Home,
+        meta: {
+            authenticated: true,
+        },
     },
     {
         path: "/contact",
@@ -23,16 +27,25 @@ const routes = [{
         path: "/login",
         name: "Login",
         component: Login,
+        meta: {
+            guest: true,
+        },
     },
     {
         path: "/signup",
         name: "Register",
         component: Register,
+        meta: {
+            guest: true,
+        },
     },
     {
         path: "/dashboard",
         name: "Dashboard",
         component: Dashboard,
+        meta: {
+            authenticated: true,
+        },
     },
     {
         path: "/about",
@@ -55,5 +68,7 @@ const router = new VueRouter({
     base: process.env.BASE_URL,
     routes,
 });
+
+router.beforeEach(AuthenticationMiddleware);
 
 export default router;

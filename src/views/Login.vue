@@ -39,6 +39,7 @@
                     :rules="emailRules"
                     type="text"
                     color="teal accent-3"
+                    error-count="2"
                     prepend-icon="mdi-email"
                   />
 
