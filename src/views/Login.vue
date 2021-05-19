@@ -7,7 +7,7 @@
             <v-col cols="12" md="8">
               <v-card-text class="mt-12">
                 <h1 class="text-center display-2 teal--text text--accent-3">
-                  Sign in to Simple Project
+                  Sign in to Easy Class
                 </h1>
                 <div class="text-center mt-4">
                   <v-btn class="mx-2" fab color="black" outlined>
@@ -22,7 +22,7 @@
                   </v-btn>
                 </div>
                 <h4 class="text-center mt-4">
-                  Ensure your email for registration
+                  Ensure your email is registered
                 </h4>
                 <div
                   class="error"
@@ -64,7 +64,12 @@
                 </h5>
               </v-card-text>
               <div class="text-center mt-3">
-                <v-btn rounded color="teal accent-3" dark @click="login"
+                <v-btn
+                  id="btn"
+                  rounded
+                  color="teal accent-3"
+                  dark
+                  @click="login"
                   >SIGN IN</v-btn
                 >
               </div>
@@ -121,16 +126,16 @@ export default {
   methods: {
     async login() {
       try {
+        this.$refs.form.validate();
         const response = await axios.post("login", {
           email: this.email,
           password: this.password,
         });
-        this.$refs.form.validate();
 
         // let token = response.data.token;
         localStorage.setItem("token", response.data.token);
         this.$store.dispatch("user", response.data.user);
-        this.$router.push("/dashboard");
+        this.$router.push("/course");
         window.location.reload();
       } catch (error) {
         this.error = error.response.data.error;
@@ -139,4 +144,9 @@ export default {
   },
 };
 </script>
+<style scoped>
+#btn {
+  outline: none;
+}
+</style>
 

@@ -82,7 +82,12 @@
                 </v-form>
               </v-card-text>
               <div class="text-center mt-3">
-                <v-btn rounded color="teal accent-3" dark @click="contact"
+                <v-btn
+                  rounded
+                  color="teal accent-3"
+                  dark
+                  @click="contact"
+                  id="btn"
                   >Contact</v-btn
                 >
               </div>
@@ -142,6 +147,7 @@ export default {
           email: this.email,
           message: this.message,
         });
+
         this.$router.push("/");
       } catch (error) {
         this.error = "An error occurred!";
@@ -153,3 +159,8 @@ export default {
   },
 };
 </script>
+<style scoped>
+#btn {
+  outline: none;
+}
+</style>

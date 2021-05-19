@@ -1,6 +1,10 @@
 <template>
   <v-container>
-    <h1 class="text-center display-1">Welcome To Simple Project</h1>
+    <h1 class="text-center display-1">Welcome To Easy Class</h1>
+    <h4 class="text-center">
+      Here in Easy class we give free Programming materials, to ease your
+      journey into web development.
+    </h4>
     <v-row
       align="center"
       justify="center"
@@ -10,10 +14,10 @@
         <v-card-text class="mt-12">
           <v-form>
             <v-text-field
-              label="Search...."
+              label="Search for course..."
               v-model="search"
               name="Search"
-              :rules="fullnameRules"
+              :rules="searchRules"
               prepend-icon="mdi-search"
               type="text"
               color="teal accent-3"
@@ -22,9 +26,7 @@
           </v-form>
         </v-card-text>
         <div class="text-center mt-3">
-          <v-btn rounded color="teal accent-3" dark @click="contact"
-            >Contact</v-btn
-          >
+          <v-btn rounded color="teal accent-3" dark @click="find">Search</v-btn>
         </div>
       </v-col>
     </v-row>
@@ -32,6 +34,43 @@
 </template>
 
 <script>
+export default {
+  name: "Home",
+
+  data() {
+    return {
+      search: "",
+    };
+  },
+
+  computed: {
+    searchRules() {
+      return [
+        (v) =>
+          (v && v.length >= 2) || "Course must be at least 2 character long ",
+      ];
+    },
+  },
+
+  methods: {
+    async find() {
+      // try {
+      //   this.$refs.form.validate();
+      //   await axios.get("search", {
+      //     fullname: this.fullname,
+      //     email: this.email,
+      //     message: this.message,
+      //   });
+      //   this.$router.push("/");
+      // } catch (error) {
+      //   this.error = "An error occurred!";
+      // }
+    },
+    // cancel() {
+    //   this.$refs.form.reset();
+    // },
+  },
+};
 </script>
 
 <style>

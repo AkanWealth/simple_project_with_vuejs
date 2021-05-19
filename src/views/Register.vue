@@ -31,7 +31,7 @@
             <v-col cols="12" md="8">
               <v-card-text class="mt-12">
                 <h1 class="text-center display-2 teal--text text--accent-3">
-                  Sign Up to Simple Project
+                  Sign Up for Easy Class
                 </h1>
                 <div class="text-center mt-4">
                   <v-btn class="mx-2" fab color="black" outlined>
@@ -100,7 +100,12 @@
                 </v-form>
               </v-card-text>
               <div class="text-center mt-3">
-                <v-btn rounded color="teal accent-3" dark @click="register"
+                <v-btn
+                  rounded
+                  color="teal accent-3"
+                  dark
+                  @click="register"
+                  id="btn"
                   >SIGN UP</v-btn
                 >
               </div>
@@ -178,3 +183,8 @@ export default {
   },
 };
 </script>
+<style scoped>
+#btn {
+  outline: none;
+}
+</style>

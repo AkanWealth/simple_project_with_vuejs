@@ -29,7 +29,7 @@ export default {
     this.$store.dispatch("user", response.data);
 
     // this.user = response.data;
-    console.log(response.data);
+    // console.log(response.data);
   },
 };
 </script>

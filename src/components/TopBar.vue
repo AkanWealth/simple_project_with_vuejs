@@ -7,7 +7,7 @@
 
     <v-toolbar-title
       ><router-link to="/" class="toolbar-title"
-        >Simple Project</router-link
+        >Easy Class</router-link
       ></v-toolbar-title
     >
     <v-spacer></v-spacer>
@@ -15,13 +15,15 @@
       <router-link to="/" class="toolbar-item">Home</router-link>
       <router-link to="/about" class="toolbar-item">About</router-link>
       <router-link to="/contact" class="toolbar-item">Contact</router-link>
+      <router-link to="/course" class="toolbar-item">Course</router-link>
       <router-link to="/login" class="toolbar-item">Login</router-link>
-      <router-link to="/signup" class="toolbar-item">Sign Up</router-link>
+      <!-- <router-link to="/signup" class="toolbar-item">Sign Up</router-link> -->
     </v-toolbar-items>
     <v-toolbar-items class="shrink mt-1 hidden-sm-and-down" v-if="user">
       <router-link to="/" class="toolbar-item">Home</router-link>
       <router-link to="/about" class="toolbar-item">About</router-link>
       <router-link to="/contact" class="toolbar-item">Contact</router-link>
+      <router-link to="/course" class="toolbar-item">Course</router-link>
       <a href="javascript:void(0)" class="toolbar-item" @click="logout"
         >Logout</a
       >

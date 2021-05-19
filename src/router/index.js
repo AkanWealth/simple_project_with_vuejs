@@ -4,7 +4,8 @@ import Home from "../views/Home.vue";
 import Contact from "../views/Contact";
 import Login from "../views/Login";
 import Register from "../views/Register";
-import Dashboard from "../views/Dashboard";
+import Course from "../views/Course.vue";
+import ViewCourse from "../views/ViewCourse.vue";
 import NotFound from "../views/Errors/NotFound.vue";
 import AuthenticationMiddleware from "./middleware/authentication";
 
@@ -15,13 +16,29 @@ const routes = [{
         name: "Home",
         component: Home,
         meta: {
-            authenticated: true,
+            authenticated: false,
         },
     },
     {
         path: "/contact",
         name: "Contact",
         component: Contact,
+    },
+    {
+        path: "/course",
+        name: "Course",
+        component: Course,
+        meta: {
+            authenticated: true,
+        },
+    },
+    {
+        path: "/course/view",
+        name: "ViewCourse",
+        component: ViewCourse,
+        meta: {
+            authenticated: false,
+        },
     },
     {
         path: "/login",
@@ -40,14 +57,6 @@ const routes = [{
         },
     },
     {
-        path: "/dashboard",
-        name: "Dashboard",
-        component: Dashboard,
-        meta: {
-            authenticated: true,
-        },
-    },
-    {
         path: "/about",
         name: "About",
         // route level code-splitting
@@ -56,6 +65,7 @@ const routes = [{
         component: () =>
             import ( /* webpackChunkName: "about" */ "../views/About.vue"),
     },
+    // ...CourseRoutes,
     {
         path: "*",
         name: "NotFound",
