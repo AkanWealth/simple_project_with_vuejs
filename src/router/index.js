@@ -4,8 +4,9 @@ import Home from "../views/Home.vue";
 import Contact from "../views/Contact";
 import Login from "../views/Login";
 import Register from "../views/Register";
-import Course from "../views/Course.vue";
-import ViewCourse from "../views/ViewCourse.vue";
+import Course from "../views/Courses/Course.vue";
+import ViewCourse from "../views/Courses/ViewCourse.vue";
+import AddCourse from "../views/Courses/AddCourse.vue";
 import NotFound from "../views/Errors/NotFound.vue";
 import AuthenticationMiddleware from "./middleware/authentication";
 
@@ -33,11 +34,19 @@ const routes = [{
         },
     },
     {
-        path: "/course/view",
+        path: "/view-course",
         name: "ViewCourse",
         component: ViewCourse,
         meta: {
-            authenticated: false,
+            authenticated: true,
+        },
+    },
+    {
+        path: "/add-course",
+        name: "AddCourse",
+        component: AddCourse,
+        meta: {
+            authenticated: true,
         },
     },
     {

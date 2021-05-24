@@ -10,7 +10,6 @@
 <script>
 import TopBar from "./TopBar.vue";
 import DrawerMenu from "./DrawerMenu.vue";
-import axios from "axios";
 
 export default {
   name: "Layout",
@@ -22,14 +21,6 @@ export default {
     return {
       drawer: false,
     };
-  },
-  async created() {
-    const response = await axios.get("user");
-
-    this.$store.dispatch("user", response.data);
-
-    // this.user = response.data;
-    // console.log(response.data);
   },
 };
 </script>

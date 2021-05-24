@@ -5,17 +5,19 @@ import createPersistedState from "vuex-persistedstate";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
+    strict: true,
     plugins: [createPersistedState()],
     state: {
         user: null,
-        course: null,
+        courses: null,
+        isAuthenticated: false,
     },
     getters: {
         user: (state) => {
             return state.user;
         },
-        course: (state) => {
-            return state.course;
+        courses: (state) => {
+            return state.courses;
         },
         isAuthenticated: (state) => {
             return !!state.user;
@@ -25,16 +27,16 @@ export default new Vuex.Store({
         user(state, user) {
             state.user = user;
         },
-        course(state, course) {
-            state.course = course;
+        courses(state, courses) {
+            state.courses = courses;
         },
     },
     actions: {
         user(context, user) {
             context.commit("user", user);
         },
-        course(context, course) {
-            context.commit("course", course);
+        courses(context, courses) {
+            context.commit("courses", courses);
         },
     },
     modules: {},

@@ -1,7 +1,13 @@
 <template>
   <v-navigation-drawer :value="value" app @input="$emit('input', $event)">
     <v-list dense>
-      <v-list-item v-for="(item, index) in menu" :key="index" link>
+      <v-list-item
+        class="btn"
+        v-for="(item, index) in menu"
+        :key="index"
+        :to="item.link"
+        link
+      >
         <v-list-item-action>
           <v-icon>{{ item.icon }}</v-icon>
         </v-list-item-action>
@@ -26,30 +32,35 @@ export default {
     menu: [
       {
         name: "Home",
-        link: "#",
+        link: "/",
         icon: "mdi-home",
       },
       {
         name: "About",
-        link: "#",
+        link: "/about",
         icon: "mdi-book",
       },
       {
         name: "Login",
-        link: "#",
+        link: "/login",
         icon: "mdi-account-circle",
       },
       {
         name: "Sign Up",
-        link: "#",
+        link: "/signup",
         icon: "mdi-account-plus",
       },
       {
         name: "Contact",
-        link: "#",
+        link: "/contact",
         icon: "mdi-email",
       },
     ],
   }),
 };
 </script>
+<style scoped>
+.btn {
+  text-decoration: none;
+}
+</style>

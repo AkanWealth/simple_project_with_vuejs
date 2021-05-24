@@ -1,10 +1,6 @@
 <template>
   <v-container class="fill-height" fluid>
-    <v-row
-      align="center"
-      justify="center"
-      style="margin-bottom: 1rem; margin-top: 1rem"
-    >
+    <v-row align="center" justify="center" style="margin-bottom: 1rem; margin-top: 1rem">
       <v-col cols="12" sm="8" md="8">
         <v-card class="elevation-12">
           <v-row>
@@ -12,18 +8,11 @@
               <v-card-text class="white--text mt-12">
                 <h1 class="text-center display-1">Welcome back, Friend!</h1>
                 <h5 class="text-center">
-                  To Keep connected with us please login with your personnel
-                  info
+                  To Keep connected with us please login with your personnel info
                 </h5>
               </v-card-text>
               <div class="text-center">
-                <v-btn
-                  rounded
-                  outlined
-                  dark
-                  to="/login"
-                  class="text-decoration-none"
-                >
+                <v-btn rounded outlined dark to="/login" class="text-decoration-none">
                   Login</v-btn
                 >
               </div>
@@ -45,15 +34,8 @@
                     <v-icon>mdi-linkedin</v-icon>
                   </v-btn>
                 </div>
-                <h4 class="text-center mt-4">
-                  Ensure your email for registration
-                </h4>
-                <div
-                  class="error"
-                  type="error"
-                  v-html="error"
-                  style="color: #fff"
-                />
+                <h4 class="text-center mt-4">Ensure your email for registration</h4>
+                <div class="error" type="error" v-html="error" style="color: #fff" />
                 <v-form ref="form" v-model="valid" lazy-validation>
                   <v-text-field
                     label="First Name"
@@ -100,12 +82,7 @@
                 </v-form>
               </v-card-text>
               <div class="text-center mt-3">
-                <v-btn
-                  rounded
-                  color="teal accent-3"
-                  dark
-                  @click="register"
-                  id="btn"
+                <v-btn rounded color="teal accent-3" dark @click="register" id="btn"
                   >SIGN UP</v-btn
                 >
               </div>
@@ -134,17 +111,13 @@ export default {
     firstNameRules() {
       return [
         (v) => !!v || "First Name is required",
-        (v) =>
-          (v && v.length >= 2) ||
-          "First name must be at least 2 character long ",
+        (v) => (v && v.length >= 2) || "First name must be at least 2 character long ",
       ];
     },
     lastNameRules() {
       return [
         (v) => !!v || "Last Name is required",
-        (v) =>
-          (v && v.length >= 2) ||
-          "Last name must be at least 2 character long ",
+        (v) => (v && v.length >= 2) || "Last name must be at least 2 character long ",
       ];
     },
     passwordRules() {
@@ -174,12 +147,9 @@ export default {
         this.$store.dispatch("user", response.data);
         this.$router.push("/login");
       } catch (error) {
-        this.error = "An error occurred!";
+        this.error = this.error = error.response.data.error; /* "An error occurred!"; */
       }
     },
-    // cancel() {
-    //   this.$refs.form.reset();
-    // },
   },
 };
 </script>

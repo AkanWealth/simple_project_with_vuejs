@@ -1,19 +1,13 @@
 <template>
   <v-container class="fill-height" fluid>
-    <v-row
-      align="center"
-      justify="center"
-      style="margin-bottom: 1rem; margin-top: 1rem"
-    >
+    <v-row align="center" justify="center" style="margin-bottom: 1rem; margin-top: 1rem">
       <v-col cols="12" sm="8" md="8">
         <v-card class="elevation-12">
           <v-row>
             <v-col cols="12" md="4" class="teal accent-3">
               <v-card-text class="white--text mt-12">
                 <h1 class="text-center display-1">Contact</h1>
-                <h5 class="text-center">
-                  You can contact us on our social media handle
-                </h5>
+                <h5 class="text-center">You can contact us on our social media handle</h5>
                 <div class="text-center mt-4">
                   <v-btn class="mx-2" fab color="black" outlined>
                     <v-icon>mdi-facebook</v-icon>
@@ -40,12 +34,7 @@
                   Contact Us
                 </h1>
                 <hr />
-                <div
-                  class="error"
-                  type="error"
-                  v-html="error"
-                  style="color: #fff"
-                />
+                <div class="error" type="error" v-html="error" style="color: #fff" />
                 <v-form ref="form" v-model="valid" lazy-validation>
                   <v-text-field
                     label="Full Name"
@@ -74,7 +63,7 @@
                     v-model="message"
                     name="message"
                     :rules="messageRules"
-                    prepend-icon="mdi-envelop"
+                    prepend-icon="mdi-message"
                     type="password"
                     error-count="2"
                     color="teal accent-3"
@@ -82,12 +71,7 @@
                 </v-form>
               </v-card-text>
               <div class="text-center mt-3">
-                <v-btn
-                  rounded
-                  color="teal accent-3"
-                  dark
-                  @click="contact"
-                  id="btn"
+                <v-btn rounded color="teal accent-3" dark @click="contact" id="btn"
                   >Contact</v-btn
                 >
               </div>
@@ -117,9 +101,7 @@ export default {
     fullnameRules() {
       return [
         (v) => !!v || "First Name is required",
-        (v) =>
-          (v && v.length >= 2) ||
-          "Full Name must be at least 2 character long ",
+        (v) => (v && v.length >= 2) || "Full Name must be at least 2 character long ",
       ];
     },
     emailRules() {
@@ -131,9 +113,7 @@ export default {
     messageRules() {
       return [
         (v) => !!v || "Message is required",
-        (v) =>
-          (v && v.length >= 3) ||
-          "First name must be at least 3 character long ",
+        (v) => (v && v.length >= 3) || "First name must be at least 3 character long ",
       ];
     },
   },

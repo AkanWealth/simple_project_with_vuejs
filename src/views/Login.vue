@@ -21,16 +21,8 @@
                     <v-icon>mdi-linkedin</v-icon>
                   </v-btn>
                 </div>
-                <h4 class="text-center mt-4">
-                  Ensure your email is registered
-                </h4>
-                <div
-                  class="error"
-                  type="error"
-                  v-html="error"
-                  dark
-                  style="color: #fff"
-                />
+                <h4 class="text-center mt-4">Ensure your email is registered</h4>
+                <div class="error" type="error" v-html="error" dark style="color: #fff" />
                 <v-form ref="form" v-model="valid" lazy-validation>
                   <v-text-field
                     label="Email"
@@ -55,21 +47,13 @@
                   />
                 </v-form>
                 <h5 class="text-center mt-4">
-                  <router-link
-                    to="/forgetPassword"
-                    class="text-decoration-none"
-                  >
+                  <router-link to="/forgetPassword" class="text-decoration-none">
                     Forgot your password ?</router-link
                   >
                 </h5>
               </v-card-text>
               <div class="text-center mt-3">
-                <v-btn
-                  id="btn"
-                  rounded
-                  color="teal accent-3"
-                  dark
-                  @click="login"
+                <v-btn id="btn" rounded color="teal accent-3" dark @click="login"
                   >SIGN IN</v-btn
                 >
               </div>
@@ -82,12 +66,7 @@
                 </h5>
               </v-card-text>
               <div class="text-center">
-                <v-btn
-                  rounded
-                  outlined
-                  dark
-                  to="/signup"
-                  class="text-decoration-none"
+                <v-btn rounded outlined dark to="/signup" class="text-decoration-none"
                   >SIGN UP</v-btn
                 >
               </div>
@@ -136,7 +115,7 @@ export default {
         localStorage.setItem("token", response.data.token);
         this.$store.dispatch("user", response.data.user);
         this.$router.push("/course");
-        window.location.reload();
+        location.reload();
       } catch (error) {
         this.error = error.response.data.error;
       }
@@ -149,4 +128,3 @@ export default {
   outline: none;
 }
 </style>
-

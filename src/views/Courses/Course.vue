@@ -1,16 +1,10 @@
 <template>
   <v-container>
-    <h3 class="name">
-      Hi, {{ user.data.first_name }} {{ user.data.last_name }}
-    </h3>
-    <v-row
-      align="center"
-      justify="center"
-      style="margin-bottom: 1rem; margin-top: 1rem"
-    >
+    <h3 class="name">Hi, {{ user.data.first_name }} {{ user.data.last_name }}</h3>
+    <v-row align="center" justify="center" style="margin-bottom: 1rem; margin-top: 1rem">
       <v-col cols="12" md="4" class="flex">
         <v-card-text class="mt-12">
-          <v-btn to="/course/view" x-large class="course" outlined height="5rem"
+          <v-btn to="/view-course" x-large class="course" outlined height="5rem"
             >CSS</v-btn
           >
           <!-- <p class="course">CSS</p> -->
@@ -35,8 +29,19 @@
 
 <script>
 import { mapGetters } from "vuex";
+import axios from "axios";
 export default {
   name: "Course",
+
+  async created() {
+    const response = await axios.get("user");
+
+    this.$store.dispatch("user", response.data);
+
+    // this.user = response.data;
+    // console.log(response.data);
+  },
+
   computed: {
     ...mapGetters(["user"]),
   },
