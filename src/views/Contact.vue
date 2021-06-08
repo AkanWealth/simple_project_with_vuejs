@@ -7,9 +7,12 @@
             <v-col cols="12" md="4" class="teal accent-3">
               <v-card-text class="white--text mt-12">
                 <h1 class="text-center display-1">Contact</h1>
-                <h5 class="text-center">You can contact us on our social media handle</h5>
-                <div class="text-center mt-4">
-                  <v-btn class="mx-2" fab color="black" outlined>
+                <h5 class="text-center">
+                  Would like to know more about Easy Class? drop a message and will be get
+                  back to you
+                </h5>
+                <!-- <div class="text-center mt-4">
+                  <v-btn class="mx-2" fab color="blue" outlined>
                     <v-icon>mdi-facebook</v-icon>
                   </v-btn>
 
@@ -25,21 +28,40 @@
                   <v-btn class="mx-2" fab color="black" outlined>
                     <v-icon>mdi-twitter</v-icon>
                   </v-btn>
-                </div>
+                </div> -->
+                <v-img src="../assets/contact.png" style="margin-top: 3rem" />
               </v-card-text>
             </v-col>
             <v-col cols="12" md="8">
               <v-card-text class="mt-12">
-                <h1 class="text-center display-2 teal--text text--accent-3">
-                  Contact Us
-                </h1>
                 <hr />
+                <h3 class="text-center teal--text text--accent-3">Contact Us</h3>
+                <hr />
+                <h5 class="text-center">You can contact us on our social media handle</h5>
+                <div class="text-center mt-4">
+                  <v-btn class="mx-2" fab color="blue" outlined>
+                    <v-icon>mdi-facebook</v-icon>
+                  </v-btn>
+
+                  <v-btn class="mx-2" fab color="red" outlined>
+                    <v-icon>mdi-google-plus</v-icon>
+                  </v-btn>
+                  <v-btn class="mx-2" fab color="blue" outlined>
+                    <v-icon>mdi-linkedin</v-icon>
+                  </v-btn>
+                  <v-btn class="mx-2" fab color="green" outlined>
+                    <v-icon>mdi-phone</v-icon>
+                  </v-btn>
+                  <v-btn class="mx-2" fab color="blue" outlined>
+                    <v-icon>mdi-twitter</v-icon>
+                  </v-btn>
+                </div>
                 <div class="error" type="error" v-html="error" style="color: #fff" />
                 <v-form ref="form" v-model="valid" lazy-validation>
                   <v-text-field
                     label="Full Name"
-                    v-model="fullname"
-                    name="FullName"
+                    v-model="contact_name"
+                    name="ContactName"
                     :rules="fullnameRules"
                     prepend-icon="mdi-account"
                     type="text"
@@ -48,8 +70,8 @@
                   />
                   <v-text-field
                     label="E-mail"
-                    v-model="email"
-                    name="Email"
+                    v-model="contact_email"
+                    name="ContactEmail"
                     :rules="emailRules"
                     type="text"
                     color="teal accent-3"
@@ -60,8 +82,8 @@
                   <v-textarea
                     id="message"
                     label="Drop your message here..."
-                    v-model="message"
-                    name="message"
+                    v-model="contact_message"
+                    name="ContactMessage"
                     :rules="messageRules"
                     prepend-icon="mdi-message"
                     type="password"
@@ -91,9 +113,9 @@ export default {
 
   data: () => ({
     valid: true,
-    fullname: "",
-    email: "",
-    message: "",
+    contact_name: "",
+    contact_email: "",
+    contact_message: "",
     error: null,
   }),
   computed: {
@@ -123,9 +145,9 @@ export default {
       try {
         this.$refs.form.validate();
         await axios.post("contactUs", {
-          fullname: this.fullname,
-          email: this.email,
-          message: this.message,
+          contact_name: this.contact_name,
+          contact_email: this.contact_email,
+          contact_message: this.contact_message,
         });
 
         this.$router.push("/");

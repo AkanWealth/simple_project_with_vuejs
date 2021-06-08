@@ -9,8 +9,8 @@ export default new Vuex.Store({
     plugins: [createPersistedState()],
     state: {
         user: null,
-        courses: null,
-        isAuthenticated: false,
+        courses: [],
+        // isAuthenticated: false,
     },
     getters: {
         user: (state) => {

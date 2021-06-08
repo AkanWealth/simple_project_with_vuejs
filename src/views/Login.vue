@@ -6,10 +6,10 @@
           <v-row>
             <v-col cols="12" md="8">
               <v-card-text class="mt-12">
-                <h1 class="text-center display-2 teal--text text--accent-3">
+                <!-- <h1 class="text-center display-2 teal--text text--accent-3">
                   Sign in to Easy Class
-                </h1>
-                <div class="text-center mt-4">
+                </h1> -->
+                <!-- <div class="text-center mt-4">
                   <v-btn class="mx-2" fab color="black" outlined>
                     <v-icon>mdi-facebook</v-icon>
                   </v-btn>
@@ -20,10 +20,12 @@
                   <v-btn class="mx-2" fab color="black" outlined>
                     <v-icon>mdi-linkedin</v-icon>
                   </v-btn>
-                </div>
-                <h4 class="text-center mt-4">Ensure your email is registered</h4>
+                </div> -->
+                <hr />
+                <h3 class="text-center mt-4 teal--text text--accent-3">Login here</h3>
+                <hr />
                 <div class="error" type="error" v-html="error" dark style="color: #fff" />
-                <v-form ref="form" v-model="valid" lazy-validation>
+                <v-form ref="form" v-model="valid" lazy-validation v-on:submit="login">
                   <v-text-field
                     label="Email"
                     v-model="email"
@@ -53,8 +55,8 @@
                 </h5>
               </v-card-text>
               <div class="text-center mt-3">
-                <v-btn id="btn" rounded color="teal accent-3" dark @click="login"
-                  >SIGN IN</v-btn
+                <v-btn id="btn" rounded color="teal accent-3" dark v-on:click="login"
+                  >Login</v-btn
                 >
               </div>
             </v-col>

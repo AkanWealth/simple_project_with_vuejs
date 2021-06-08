@@ -1,29 +1,25 @@
 <template>
   <v-container>
     <h3 class="name">Hi, {{ user.data.first_name }} {{ user.data.last_name }}</h3>
-    <v-row align="center" justify="center" style="margin-bottom: 1rem; margin-top: 1rem">
+    <h3>Below are courses you can pick from</h3>
+    <v-tabs>
+      <v-tab to="/course">Videos</v-tab>
+      <v-tab>PDF</v-tab>
+    </v-tabs>
+    <!-- <v-row align="center" justify="center" style="margin-bottom: 1rem; margin-top: 1rem">
       <v-col cols="12" md="4" class="flex">
-        <v-card-text class="mt-12">
-          <v-btn to="/view-course" x-large class="course" outlined height="5rem"
-            >CSS</v-btn
-          >
-          <!-- <p class="course">CSS</p> -->
-        </v-card-text>
-        <v-card-text class="mt-12">
-          <v-btn x-large class="course" outlined height="5rem">GIT</v-btn>
-        </v-card-text>
+        <v-list dense>
+          <v-list-item>
+            <v-list-item-content>
+              <h3 class="course">HTML</h3>
+              <h3 class="course">CSS</h3>
+              <h3 class="course">NODE</h3>
+              <h3 class="course">GIT</h3>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
       </v-col>
-      <v-col cols="12" md="4" class="flex">
-        <v-card-text class="mt-12">
-          <v-btn x-large class="course" outlined height="5rem">HTML</v-btn>
-        </v-card-text>
-        <v-card-text class="mt-12">
-          <v-btn x-large class="course" outlined height="5rem">NODE</v-btn>
-        </v-card-text>
-      </v-col>
-      <!-- <v-col cols="6" md="4">
-      </v-col> -->
-    </v-row>
+    </v-row> -->
   </v-container>
 </template>
 
@@ -37,6 +33,9 @@ export default {
     const response = await axios.get("user");
 
     this.$store.dispatch("user", response.data);
+    if (localStorage.getItem === null) {
+      this.$router.push("/login");
+    }
 
     // this.user = response.data;
     // console.log(response.data);
@@ -49,7 +48,10 @@ export default {
 </script>
 
 <style scoped>
-.name {
+.course {
+  font-size: 3rem;
+}
+/* .name {
   font-size: 2rem;
 }
 .mt-12 {
@@ -63,5 +65,5 @@ export default {
   .course {
     font-size: 1rem;
   }
-}
+} */
 </style>

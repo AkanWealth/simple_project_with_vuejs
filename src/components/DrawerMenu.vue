@@ -15,10 +15,22 @@
           <v-list-item-title>{{ item.name }}</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
+      <v-list-item v-if="user">
+        <v-btn
+          href="javascript:void(0)"
+          class="toolbar-item"
+          outlined
+          rounded
+          @click="logout"
+          >Logout</v-btn
+        >
+      </v-list-item>
     </v-list>
   </v-navigation-drawer>
 </template>
+
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "DrawerMenu",
   props: {
@@ -57,10 +69,29 @@ export default {
       },
     ],
   }),
+
+  methods: {
+    logout() {
+      localStorage.removeItem("token");
+      this.$store.dispatch("user", null);
+      this.$router.push("/");
+    },
+  },
+
+  computed: {
+    ...mapGetters(["user"]),
+  },
 };
 </script>
+
 <style scoped>
-.btn {
+.toolbar-item {
+  padding: 20px;
   text-decoration: none;
+  color: #fff;
+  background-color: teal;
+  font: bold;
+  font-size: 1.2rem;
+  margin: 3rem;
 }
 </style>

@@ -16,6 +16,7 @@
     </v-toolbar-items>
     <v-toolbar-items class="shrink mt-1 hidden-sm-and-down" v-if="user">
       <router-link to="/add-course" class="toolbar-item">Add Course</router-link>
+      <router-link to="/view-course" class="toolbar-item">View Course</router-link>
       <router-link to="/course" class="toolbar-item">Course</router-link>
       <a href="javascript:void(0)" class="toolbar-item" @click="logout">Logout</a>
     </v-toolbar-items>

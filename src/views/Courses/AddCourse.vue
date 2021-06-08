@@ -31,7 +31,9 @@
               color="teal accent-3"
             />
             <v-col cols="12" class="text-right">
-              <v-btn rounded color="error" class="mr-4" @click="cancel"> Cancel </v-btn>
+              <v-btn rounded color="error" class="mr-4" @click="cancel">
+                Cancel
+              </v-btn>
               <v-btn
                 rounded
                 :disabled="!valid"
@@ -43,14 +45,6 @@
                 Submit
               </v-btn>
             </v-col>
-            <!-- <div class="text-center mt-3">
-              <v-btn rounded color="teal accent-3" dark @click="addCourse" id="btn"
-                >Submit</v-btn
-              >
-            </div>
-            <div class="text-center mt-3">
-              <v-btn rounded color="red" dark @click="cancel" id="btn">Cancel</v-btn>
-            </div> -->
           </v-form>
         </v-card-text>
       </v-col>
@@ -77,13 +71,16 @@ export default {
     titleRules() {
       return [
         (v) => !!v || "Title is required",
-        (v) => (v && v.length >= 3) || "Title must be at least 3 character long ",
+        (v) =>
+          (v && v.length >= 3) || "Title must be at least 3 character long ",
       ];
     },
     descriptionRules() {
       return [
         (v) => !!v || "Description is required",
-        (v) => (v && v.length >= 3) || "Description must be at least 3 character long ",
+        (v) =>
+          (v && v.length >= 3) ||
+          "Description must be at least 3 character long ",
       ];
     },
     instructorRules() {
